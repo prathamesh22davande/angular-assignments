@@ -1,8 +1,6 @@
 <div class="container-fluid">
   <h1>Employee Registration</h1>
   <form #empForm="ngForm">
-    {{ empForm.value | json }}
-
     <div class="form-group">
       <label>Name</label>
       <input
@@ -52,6 +50,13 @@
       </select>
     </div>
 
-    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+    <button class="btn btn-primary mt-4" (click)="onSubmit()">Submit</button>
   </form>
+</div>
+<hr />
+<div class="container" [hidden]="!isSubmitted">
+  <p>Name : {{ empForm.value.name }}</p>
+  <p>Email : {{ empForm.value.email }}</p>
+  <p>Phone : {{ empForm.value.phone }}</p>
+  <p>Position : {{ empForm.value.position }}</p>
 </div>
